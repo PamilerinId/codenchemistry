@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-gray-800 font-sans;
+  }
+}
+
+@layer components {
+  .gradient-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #f1cc3c 50%, #fad154 100%);
+  }
+  
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #f1cc3c 50%, #fad154 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .card-elegant {
+    @apply bg-white/80 backdrop-blur-md border border-gold-200/30 rounded-lg shadow-lg;
+  }
+  
+  .btn-elegant {
+    @apply px-8 py-3 bg-gradient-to-r from-champagne-600 to-gold-500 text-white font-medium rounded-full 
+           hover:from-champagne-700 hover:to-gold-600 transition-all duration-300 transform hover:scale-105 
+           shadow-lg hover:shadow-xl;
+  }
+} 
