@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
   title: 'Save the Date - CodeAndChemistry',
   description: 'Join us on December 6, 2025 as we celebrate the perfect formula of love between a techie and a biochemist.',
   keywords: ['wedding', 'save the date', 'codeandchemistry', 'December 2025'],

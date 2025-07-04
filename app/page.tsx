@@ -1,13 +1,22 @@
 import Countdown from '@/components/countdown'
 import BackgroundDoodles from '@/components/background-doodles'
+import BackgroundMedia from '@/components/background-media'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-8 relative">
-      {/* Background Doodles */}
-      <BackgroundDoodles />
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-8 relative overflow-hidden">
+      {/* Background Media - Now showing your wedding image */}
+      <BackgroundMedia type="image" src="/trad1.jpeg" />
+      {/* For video: <BackgroundMedia type="video" src="/wedding-bg.mp4" poster="/trad1.jpeg" /> */}
+      {/* For gradient: <BackgroundMedia type="gradient" /> */}
       
-      <div className="max-w-md w-full text-center space-y-8 relative z-10">
+      {/* Background Doodles (positioned above the overlay) */}
+      {/* <div className="absolute inset-0 z-10">
+        <BackgroundDoodles />
+      </div> */}
+      
+      {/* Main Content */}
+      <div className="max-w-md w-full text-center space-y-8 relative z-20">
         
         {/* Header */}
         <div className="space-y-2">
