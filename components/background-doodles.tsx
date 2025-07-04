@@ -97,39 +97,39 @@ export function BloodDrop({ className = '', size = 20 }: DoodleProps) {
 // Background Component
 export default function BackgroundDoodles() {
   const doodles = [
-    // Coding elements
-    { Component: CodeBrackets, x: '10%', y: '15%', size: 16, rotation: 15 },
-    { Component: Terminal, x: '85%', y: '20%', size: 18, rotation: -10 },
-    { Component: CodeFunction, x: '15%', y: '70%', size: 14, rotation: 25 },
-    { Component: CodeBrackets, x: '80%', y: '75%', size: 12, rotation: -20 },
-    { Component: Terminal, x: '20%', y: '40%', size: 15, rotation: 45 },
+    // Coding elements (gray tones)
+    { Component: CodeBrackets, x: '10%', y: '15%', size: 16, rotation: 15, color: 'text-gray-300', opacity: 'opacity-10' },
+    { Component: Terminal, x: '85%', y: '20%', size: 18, rotation: -10, color: 'text-gray-400', opacity: 'opacity-8' },
+    { Component: CodeFunction, x: '15%', y: '70%', size: 14, rotation: 25, color: 'text-gray-300', opacity: 'opacity-12' },
+    { Component: CodeBrackets, x: '80%', y: '75%', size: 12, rotation: -20, color: 'text-gray-300', opacity: 'opacity-10' },
+    { Component: Terminal, x: '20%', y: '40%', size: 15, rotation: 45, color: 'text-gray-400', opacity: 'opacity-8' },
     
-    // Chemistry elements
-    { Component: Molecule, x: '75%', y: '35%', size: 16, rotation: -15 },
-    { Component: Beaker, x: '90%', y: '60%', size: 18, rotation: 10 },
-    { Component: DNAHelix, x: '5%', y: '55%', size: 20, rotation: -30 },
-    { Component: Molecule, x: '25%', y: '85%', size: 14, rotation: 35 },
-    { Component: Beaker, x: '70%', y: '10%', size: 16, rotation: -25 },
+    // Chemistry elements (gold tones)
+    { Component: Molecule, x: '75%', y: '35%', size: 16, rotation: -15, color: 'text-champagne-400', opacity: 'opacity-12' },
+    { Component: Beaker, x: '90%', y: '60%', size: 18, rotation: 10, color: 'text-gold-400', opacity: 'opacity-10' },
+    { Component: DNAHelix, x: '5%', y: '55%', size: 20, rotation: -30, color: 'text-champagne-300', opacity: 'opacity-15' },
+    { Component: Molecule, x: '25%', y: '85%', size: 14, rotation: 35, color: 'text-gold-300', opacity: 'opacity-12' },
+    { Component: Beaker, x: '70%', y: '10%', size: 16, rotation: -25, color: 'text-champagne-400', opacity: 'opacity-10' },
     
-    // Blood cells
-    { Component: SickleCell, x: '30%', y: '25%', size: 12, rotation: 20 },
-    { Component: NormalCell, x: '65%', y: '50%', size: 10, rotation: 0 },
-    { Component: SickleCell, x: '85%', y: '40%', size: 14, rotation: -40 },
-    { Component: BloodDrop, x: '40%', y: '80%', size: 16, rotation: 15 },
-    { Component: NormalCell, x: '15%', y: '30%', size: 8, rotation: 0 },
-    { Component: SickleCell, x: '50%', y: '90%', size: 12, rotation: -15 },
-    { Component: BloodDrop, x: '90%', y: '85%', size: 14, rotation: 30 },
-    { Component: NormalCell, x: '60%', y: '25%', size: 9, rotation: 0 },
+    // Blood cells (mix of gray and subtle gold)
+    { Component: SickleCell, x: '30%', y: '25%', size: 12, rotation: 20, color: 'text-gray-400', opacity: 'opacity-12' },
+    { Component: NormalCell, x: '65%', y: '50%', size: 10, rotation: 0, color: 'text-gray-300', opacity: 'opacity-10' },
+    { Component: SickleCell, x: '85%', y: '40%', size: 14, rotation: -40, color: 'text-champagne-300', opacity: 'opacity-8' },
+    { Component: BloodDrop, x: '40%', y: '80%', size: 16, rotation: 15, color: 'text-gray-400', opacity: 'opacity-12' },
+    { Component: NormalCell, x: '15%', y: '30%', size: 8, rotation: 0, color: 'text-gray-300', opacity: 'opacity-8' },
+    { Component: SickleCell, x: '50%', y: '90%', size: 12, rotation: -15, color: 'text-gold-300', opacity: 'opacity-10' },
+    { Component: BloodDrop, x: '90%', y: '85%', size: 14, rotation: 30, color: 'text-champagne-400', opacity: 'opacity-12' },
+    { Component: NormalCell, x: '60%', y: '25%', size: 9, rotation: 0, color: 'text-gray-300', opacity: 'opacity-8' },
   ]
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {doodles.map((doodle, index) => {
-        const { Component, x, y, size, rotation } = doodle
+        const { Component, x, y, size, rotation, color, opacity } = doodle
         return (
           <div
             key={index}
-            className="absolute opacity-5 text-gray-400"
+            className={`absolute ${opacity} ${color}`}
             style={{
               left: x,
               top: y,
