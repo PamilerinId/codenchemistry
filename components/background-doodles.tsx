@@ -69,6 +69,93 @@ export function DNAHelix({ className = '', size = 20 }: DoodleProps) {
   )
 }
 
+export function Atom({ className = '', size = 20 }: DoodleProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+      <circle cx="12" cy="12" r="2" fill="currentColor" />
+      <ellipse cx="12" cy="12" rx="8" ry="3" />
+      <ellipse cx="12" cy="12" rx="8" ry="3" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="8" ry="3" transform="rotate(120 12 12)" />
+    </svg>
+  )
+}
+
+export function TestTube({ className = '', size = 20 }: DoodleProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+      <path d="M8 2L16 10V20C16 21.1 15.1 22 14 22H10C8.9 22 8 21.1 8 20V2Z" />
+      <path d="M8 2H16" />
+      <path d="M10 16H14" />
+      <path d="M10 18H14" />
+    </svg>
+  )
+}
+
+export function Flask({ className = '', size = 20 }: DoodleProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+      <path d="M10 2V8L4 16C3.5 17 4.2 18 5.3 18H18.7C19.8 18 20.5 17 20 16L14 8V2" />
+      <path d="M8 2H16" />
+      <path d="M6 14H18" />
+      <circle cx="8" cy="16" r="1" fill="currentColor" />
+      <circle cx="16" cy="15" r="1" fill="currentColor" />
+    </svg>
+  )
+}
+
+export function BenzeneRing({ className = '', size = 20 }: DoodleProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+      <polygon points="12,2 20,7 20,17 12,22 4,17 4,7" />
+      <polygon points="12,6 16,8.5 16,15.5 12,18 8,15.5 8,8.5" />
+    </svg>
+  )
+}
+
+export function ChemicalBond({ className = '', size = 20 }: DoodleProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+      <circle cx="4" cy="12" r="3" />
+      <circle cx="20" cy="12" r="3" />
+      <path d="M7 10L17 10" />
+      <path d="M7 12L17 12" />
+      <path d="M7 14L17 14" />
+    </svg>
+  )
+}
+
+export function Microscope({ className = '', size = 20 }: DoodleProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+      <path d="M6 18H18" />
+      <path d="M12 2V18" />
+      <circle cx="12" cy="6" r="2" />
+      <circle cx="12" cy="14" r="3" />
+      <path d="M8 8L16 8" />
+      <path d="M10 20L14 20" />
+    </svg>
+  )
+}
+
+export function PeriodicElement({ className = '', size = 20 }: DoodleProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+      <rect x="2" y="2" width="20" height="20" rx="2" />
+      <text x="12" y="10" textAnchor="middle" fontSize="8" fill="currentColor" fontWeight="bold">H</text>
+      <text x="12" y="18" textAnchor="middle" fontSize="6" fill="currentColor">1</text>
+    </svg>
+  )
+}
+
+export function ChemicalFormula({ className = '', size = 20 }: DoodleProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+      <text x="2" y="12" fontSize="10" fill="currentColor" fontWeight="bold">H₂O</text>
+      <text x="2" y="20" fontSize="8" fill="currentColor">C₆H₁₂O₆</text>
+    </svg>
+  )
+}
+
 // Sickle Cell Doodles
 export function SickleCell({ className = '', size = 20 }: DoodleProps) {
   return (
@@ -97,29 +184,41 @@ export function BloodDrop({ className = '', size = 20 }: DoodleProps) {
 // Background Component
 export default function BackgroundDoodles() {
   const doodles = [
-    // Coding elements (gray tones)
-    { Component: CodeBrackets, x: '10%', y: '15%', size: 16, rotation: 15, color: 'text-gray-300', opacity: 'opacity-10' },
-    { Component: Terminal, x: '85%', y: '20%', size: 18, rotation: -10, color: 'text-gray-400', opacity: 'opacity-8' },
-    { Component: CodeFunction, x: '15%', y: '70%', size: 14, rotation: 25, color: 'text-gray-300', opacity: 'opacity-12' },
-    { Component: CodeBrackets, x: '80%', y: '75%', size: 12, rotation: -20, color: 'text-gray-300', opacity: 'opacity-10' },
-    { Component: Terminal, x: '20%', y: '40%', size: 15, rotation: 45, color: 'text-gray-400', opacity: 'opacity-8' },
+    // Coding elements (neutral tones that work on both gradient and video) - increased sizes
+    { Component: CodeBrackets, x: '10%', y: '15%', size: 24, rotation: 15, color: 'text-gray-400', opacity: 'opacity-15' },
+    { Component: Terminal, x: '85%', y: '20%', size: 28, rotation: -10, color: 'text-gray-500', opacity: 'opacity-12' },
+    { Component: CodeFunction, x: '15%', y: '70%', size: 22, rotation: 25, color: 'text-gray-400', opacity: 'opacity-18' },
+    { Component: CodeBrackets, x: '80%', y: '75%', size: 20, rotation: -20, color: 'text-gray-400', opacity: 'opacity-15' },
+    { Component: Terminal, x: '20%', y: '40%', size: 26, rotation: 45, color: 'text-gray-500', opacity: 'opacity-12' },
     
-    // Chemistry elements (gold tones)
-    { Component: Molecule, x: '75%', y: '35%', size: 16, rotation: -15, color: 'text-champagne-400', opacity: 'opacity-12' },
-    { Component: Beaker, x: '90%', y: '60%', size: 18, rotation: 10, color: 'text-gold-400', opacity: 'opacity-10' },
-    { Component: DNAHelix, x: '5%', y: '55%', size: 20, rotation: -30, color: 'text-champagne-300', opacity: 'opacity-15' },
-    { Component: Molecule, x: '25%', y: '85%', size: 14, rotation: 35, color: 'text-gold-300', opacity: 'opacity-12' },
-    { Component: Beaker, x: '70%', y: '10%', size: 16, rotation: -25, color: 'text-champagne-400', opacity: 'opacity-10' },
+    // Chemistry elements (gold tones) - increased sizes and more variety
+    { Component: Molecule, x: '75%', y: '35%', size: 26, rotation: -15, color: 'text-champagne-400', opacity: 'opacity-18' },
+    { Component: Beaker, x: '90%', y: '60%', size: 28, rotation: 10, color: 'text-gold-400', opacity: 'opacity-15' },
+    { Component: DNAHelix, x: '5%', y: '55%', size: 32, rotation: -30, color: 'text-champagne-300', opacity: 'opacity-20' },
+    { Component: Molecule, x: '25%', y: '85%', size: 24, rotation: 35, color: 'text-gold-300', opacity: 'opacity-18' },
+    { Component: Beaker, x: '70%', y: '10%', size: 26, rotation: -25, color: 'text-champagne-400', opacity: 'opacity-15' },
+    { Component: Atom, x: '35%', y: '15%', size: 30, rotation: 0, color: 'text-gold-400', opacity: 'opacity-20' },
+    { Component: TestTube, x: '60%', y: '80%', size: 24, rotation: 20, color: 'text-champagne-300', opacity: 'opacity-15' },
+    { Component: Flask, x: '8%', y: '35%', size: 28, rotation: -10, color: 'text-gold-300', opacity: 'opacity-18' },
+    { Component: BenzeneRing, x: '45%', y: '25%', size: 26, rotation: 30, color: 'text-champagne-400', opacity: 'opacity-16' },
+    { Component: ChemicalBond, x: '88%', y: '45%', size: 24, rotation: -20, color: 'text-gold-400', opacity: 'opacity-14' },
+    { Component: Microscope, x: '12%', y: '80%', size: 30, rotation: 15, color: 'text-champagne-300', opacity: 'opacity-18' },
+    { Component: PeriodicElement, x: '52%', y: '65%', size: 22, rotation: -5, color: 'text-gold-300', opacity: 'opacity-16' },
+    { Component: ChemicalFormula, x: '78%', y: '25%', size: 24, rotation: 25, color: 'text-champagne-400', opacity: 'opacity-15' },
+    { Component: Atom, x: '65%', y: '5%', size: 28, rotation: 45, color: 'text-gold-400', opacity: 'opacity-17' },
+    { Component: TestTube, x: '30%', y: '60%', size: 26, rotation: -35, color: 'text-champagne-300', opacity: 'opacity-16' },
+    { Component: Flask, x: '95%', y: '30%', size: 24, rotation: 40, color: 'text-gold-300', opacity: 'opacity-14' },
+    { Component: BenzeneRing, x: '18%', y: '95%', size: 22, rotation: -15, color: 'text-champagne-400', opacity: 'opacity-18' },
     
-    // Blood cells (mix of gray and subtle gold)
-    { Component: SickleCell, x: '30%', y: '25%', size: 12, rotation: 20, color: 'text-gray-400', opacity: 'opacity-12' },
-    { Component: NormalCell, x: '65%', y: '50%', size: 10, rotation: 0, color: 'text-gray-300', opacity: 'opacity-10' },
-    { Component: SickleCell, x: '85%', y: '40%', size: 14, rotation: -40, color: 'text-champagne-300', opacity: 'opacity-8' },
-    { Component: BloodDrop, x: '40%', y: '80%', size: 16, rotation: 15, color: 'text-gray-400', opacity: 'opacity-12' },
-    { Component: NormalCell, x: '15%', y: '30%', size: 8, rotation: 0, color: 'text-gray-300', opacity: 'opacity-8' },
-    { Component: SickleCell, x: '50%', y: '90%', size: 12, rotation: -15, color: 'text-gold-300', opacity: 'opacity-10' },
-    { Component: BloodDrop, x: '90%', y: '85%', size: 14, rotation: 30, color: 'text-champagne-400', opacity: 'opacity-12' },
-    { Component: NormalCell, x: '60%', y: '25%', size: 9, rotation: 0, color: 'text-gray-300', opacity: 'opacity-8' },
+    // Blood cells (mix of gray and subtle gold) - increased sizes
+    { Component: SickleCell, x: '30%', y: '25%', size: 20, rotation: 20, color: 'text-gray-500', opacity: 'opacity-18' },
+    { Component: NormalCell, x: '65%', y: '50%', size: 18, rotation: 0, color: 'text-gray-400', opacity: 'opacity-15' },
+    { Component: SickleCell, x: '85%', y: '40%', size: 22, rotation: -40, color: 'text-champagne-300', opacity: 'opacity-12' },
+    { Component: BloodDrop, x: '40%', y: '80%', size: 24, rotation: 15, color: 'text-gray-500', opacity: 'opacity-18' },
+    { Component: NormalCell, x: '15%', y: '30%', size: 16, rotation: 0, color: 'text-gray-400', opacity: 'opacity-12' },
+    { Component: SickleCell, x: '50%', y: '90%', size: 20, rotation: -15, color: 'text-gold-300', opacity: 'opacity-15' },
+    { Component: BloodDrop, x: '90%', y: '85%', size: 22, rotation: 30, color: 'text-champagne-400', opacity: 'opacity-18' },
+    { Component: NormalCell, x: '60%', y: '25%', size: 17, rotation: 0, color: 'text-gray-400', opacity: 'opacity-12' },
   ]
 
   return (
