@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     siteName: 'Fatima & Pamilerin Wedding',
     images: [
       {
-        url: '/trad1.jpeg',
+        url: '/api/og-image',
         width: 1200,
         height: 630,
         alt: 'Fatima & Pamilerin Wedding - Save the Date December 6, 2025',
-        type: 'image/jpeg',
+        type: 'image/png',
       },
     ],
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Save the Date - CodeAndChemistry',
     description: 'December 6, 2025 - A celebration of love, code, and chemistry! Join us for our special day.',
-    images: ['/trad1.jpeg'],
+    images: ['/api/og-image'],
     creator: '@pamilerinid',
     site: '@pamilerinid',
   },
