@@ -1,0 +1,44 @@
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl the wedding save-the-date site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Allow social media crawlers for better sharing
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Sitemap location
+Sitemap: https://codeandchemistry.com/sitemap.xml
+
+# Crawl delay (optional - 1 second)
+Crawl-delay: 1
+
+# Wedding-specific directives
+# Allow indexing of the main save-the-date page
+Allow: /
+Allow: /api/og-image
+
+# Block any potential admin or private areas (if they exist in the future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Host directive (replace with your actual domain)
+Host: codeandchemistry.com 

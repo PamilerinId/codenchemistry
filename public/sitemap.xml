@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Main save-the-date page -->
+  <url>
+    <loc>https://codeandchemistry.com/</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://codeandchemistry.com/api/og-image</image:loc>
+      <image:title>Fatima &amp; Pamilerin Wedding - Save the Date December 6, 2025</image:title>
+      <image:caption>CodeAndChemistry wedding save-the-date for December 6, 2025</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codeandchemistry.com/trad1.jpeg</image:loc>
+      <image:title>Fatima &amp; Pamilerin Wedding Photo</image:title>
+      <image:caption>Wedding photo of Fatima and Pamilerin</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- OG Image API endpoint -->
+  <url>
+    <loc>https://codeandchemistry.com/api/og-image</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Robots.txt -->
+  <url>
+    <loc>https://codeandchemistry.com/robots.txt</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- LLM instructions -->
+  <url>
+    <loc>https://codeandchemistry.com/llm.txt</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset> 
