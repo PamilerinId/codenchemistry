@@ -17,123 +17,121 @@ export async function GET(request: NextRequest) {
     const imageSrc = `data:image/jpeg;base64,${imageBase64}`
 
     return new ImageResponse(
-      (
+      <div
+        style={{
+          height: '100%',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+          backgroundColor: '#f3f4f6',
+        }}
+      >
+        {/* Background Image */}
+        <img
+          src={imageSrc}
+          alt="Wedding background"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            filter: 'blur(8px)',
+          }}
+        />
+        
+        {/* White Overlay for blur effect */}
         <div
           style={{
-            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
             width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(255, 255, 255, 0.7)',
+          }}
+        />
+        
+        {/* Content */}
+        <div
+          style={{
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
+            textAlign: 'center',
             position: 'relative',
-            backgroundColor: '#f3f4f6',
+            zIndex: 10,
+            maxWidth: '800px',
+            padding: '60px',
           }}
         >
-          {/* Background Image */}
-          <img
-            src={imageSrc}
-            alt="Wedding background"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              filter: 'blur(8px)',
-            }}
-          />
-          
-          {/* White Overlay for blur effect */}
+          {/* Save the Date */}
           <div
             style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'rgba(255, 255, 255, 0.7)',
+              fontSize: '28px',
+              fontWeight: '300',
+              color: '#374151',
+              letterSpacing: '0.3em',
+              textTransform: 'uppercase',
+              marginBottom: '20px',
             }}
-          />
+          >
+            Save the Date
+          </div>
           
-          {/* Content */}
+          {/* Names */}
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center',
-              textAlign: 'center',
-              position: 'relative',
-              zIndex: 10,
-              maxWidth: '800px',
-              padding: '60px',
+              marginBottom: '30px',
             }}
           >
-            {/* Save the Date */}
             <div
               style={{
-                fontSize: '28px',
-                fontWeight: '300',
-                color: '#374151',
-                letterSpacing: '0.3em',
-                textTransform: 'uppercase',
-                marginBottom: '20px',
-              }}
-            >
-              Save the Date
-            </div>
-            
-            {/* Names */}
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                marginBottom: '30px',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: '72px',
-                  fontWeight: '400',
-                  color: '#000000',
-                  fontFamily: 'serif',
-                  marginBottom: '10px',
-                }}
-              >
-                Fatima & Pamilerin
-              </div>
-            </div>
-            
-            {/* Theme */}
-            <div
-              style={{
-                fontSize: '32px',
-                fontWeight: '500',
-                color: '#374151',
-                letterSpacing: '0.2em',
-                marginBottom: '30px',
-              }}
-            >
-              #CodeAndChemistry
-            </div>
-            
-            {/* Date */}
-            <div
-              style={{
-                fontSize: '48px',
-                fontWeight: '300',
+                fontSize: '72px',
+                fontWeight: '400',
                 color: '#000000',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
+                fontFamily: 'serif',
+                marginBottom: '10px',
               }}
             >
-              December 6, 2025
+              Fatima & Pamilerin
             </div>
           </div>
+          
+          {/* Theme */}
+          <div
+            style={{
+              fontSize: '32px',
+              fontWeight: '500',
+              color: '#374151',
+              letterSpacing: '0.2em',
+              marginBottom: '30px',
+            }}
+          >
+            #CodeAndChemistry
+          </div>
+          
+          {/* Date */}
+          <div
+            style={{
+              fontSize: '48px',
+              fontWeight: '300',
+              color: '#000000',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+            }}
+          >
+            December 6, 2025
+          </div>
         </div>
-      ),
+      </div>,
       {
         width,
         height,
