@@ -7,10 +7,18 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: hidden;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
   }
   
   body {
     @apply bg-white text-gray-800 font-sans;
+    overflow: hidden;
   }
 }
 
@@ -35,4 +43,4 @@
            hover:from-champagne-700 hover:to-gold-600 transition-all duration-300 transform hover:scale-105 
            shadow-lg hover:shadow-xl;
   }
-} 
+}
