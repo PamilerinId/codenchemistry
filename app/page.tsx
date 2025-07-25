@@ -67,6 +67,13 @@ export default function Home() {
           <Countdown />
         </div>
 
+        {/* RSVP Info */}
+        <div className="pt-6">
+          <p className="text-sm text-gray-600 text-center">
+            RSVP with your personal invitation code
+          </p>
+        </div>
+
         {/* Footer */}
         <div className="pt-4">
           <p className="text-xs tracking-[0.2em] font-light text-gray-600 uppercase">

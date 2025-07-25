@@ -9,7 +9,6 @@
     scroll-behavior: smooth;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    overflow: hidden;
   }
 
   html::-webkit-scrollbar {
@@ -18,7 +17,6 @@
   
   body {
     @apply bg-white text-gray-800 font-sans;
-    overflow: hidden;
   }
 }
 
