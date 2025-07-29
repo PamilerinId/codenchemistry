@@ -63,6 +63,19 @@ export default function RSVPPage() {
           </div>
         </div>
 
+        {/* Date and Location */}
+        <div className="text-center mb-6">
+          {/* <p className="text-lg tracking-[0.2em] font-light text-black uppercase mb-1">
+            6 December, 2025
+          </p> */}
+          <p className="text-sm tracking-[0.1em] font-light text-gray-700 uppercase mb-1">
+            Kwara State
+          </p>
+          <p className="text-xs tracking-[0.1em] font-light text-gray-600 italic">
+            Exact location to be sent to confirmed guests
+          </p>
+        </div>
+
         <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg border border-champagne-200">
           {/* Header */}
           <div className="text-center mb-6">

@@ -81,6 +81,19 @@ export default function ProtectedRSVPPage() {
             </div>
           </div>
 
+          {/* Date and Location */}
+          <div className="text-center mb-6">
+            {/* <p className="text-lg tracking-[0.2em] font-light text-black uppercase mb-1">
+              6 December, 2025
+            </p> */}
+            <p className="text-sm tracking-[0.1em] font-light text-gray-700 uppercase mb-1">
+              Kwara State
+            </p>
+            <p className="text-xs tracking-[0.1em] font-light text-gray-600 italic">
+              Exact location to be sent to confirmed guests
+            </p>
+          </div>
+
           <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg border border-champagne-200">
             <div className="w-8 h-8 border-4 border-champagne-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
             <p className="text-gray-600">Validating invitation...</p>
@@ -113,6 +126,19 @@ export default function ProtectedRSVPPage() {
                 Pamilerin Idowu
               </h3>
             </div>
+          </div>
+
+          {/* Date and Location */}
+          <div className="text-center mb-6">
+            {/* <p className="text-lg tracking-[0.2em] font-light text-black uppercase mb-1">
+              6 December, 2025
+            </p> */}
+            <p className="text-sm tracking-[0.1em] font-light text-gray-700 uppercase mb-1">
+              Kwara State
+            </p>
+            <p className="text-xs tracking-[0.1em] font-light text-gray-600 italic">
+              Exact location to be sent to confirmed guests
+            </p>
           </div>
 
           <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg border border-red-200">
@@ -155,6 +181,19 @@ export default function ProtectedRSVPPage() {
                 Pamilerin Idowu
               </h3>
             </div>
+          </div>
+
+          {/* Date and Location */}
+          <div className="text-center mb-6">
+            {/* <p className="text-lg tracking-[0.2em] font-light text-black uppercase mb-1">
+              6 December, 2025
+            </p> */}
+            <p className="text-sm tracking-[0.1em] font-light text-gray-700 uppercase mb-1">
+              Kwara State
+            </p>
+            <p className="text-xs tracking-[0.1em] font-light text-gray-600 italic">
+              Exact location to be sent to confirmed guests
+            </p>
           </div>
 
           <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg border border-yellow-200">
@@ -207,9 +246,22 @@ export default function ProtectedRSVPPage() {
           </div>
         </div>
 
+        {/* Date and Location */}
+        <div className="text-center mb-6">
+            {/* <p className="text-lg tracking-[0.2em] font-light text-black uppercase mb-1">
+              6 December, 2025
+            </p> */}
+          <p className="text-sm tracking-[0.1em] font-light text-gray-700 uppercase mb-1">
+            Kwara State
+          </p>
+          <p className="text-xs tracking-[0.1em] font-light text-gray-600 italic">
+            Exact location to be sent to confirmed guests
+          </p>
+        </div>
+
         {/* Registration Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-cursive text-gray-800 mb-2">Join Our Celebration</h1>
+          {/* <h1 className="text-3xl font-cursive text-gray-800 mb-2">Join Our Celebration</h1> */}
           <p className="text-sm text-gray-600 mb-2">
             You&apos;re invited by: <span className="font-medium">{invitationData.invitation.inviter_name}</span>
           </p>

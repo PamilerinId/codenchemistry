@@ -30,16 +30,16 @@ export default function Home() {
 
         {/* Bride's Name - Elegant Cursive */}
         <div className="space-y-1">
-          <h2 className="text-5xl md:text-6xl font-cursive font-normal tracking-wide text-black">
+          <h2 className="text-6xl md:text-6xl font-cursive font-normal tracking-wide text-black">
             Fatima
           </h2>
-          <h2 className="text-5xl md:text-6xl font-cursive font-normal tracking-wide text-black">
+          <h2 className="text-6xl md:text-6xl font-cursive font-normal tracking-wide text-black">
             Oyawoye
           </h2>
         </div>
 
         {/* Theme */}
-        <div className="py-4">
+        <div className="py-2">
           <p className="text-xs tracking-[0.3em] font-medium text-gray-700 uppercase">
             #CodeAndChemistry
           </p>
@@ -58,7 +58,20 @@ export default function Home() {
         {/* Date */}
         <div className="space-y-2 pt-8">
           <p className="text-lg tracking-[0.2em] font-light text-black uppercase">
-            6 December
+            6 December, 2025
+          </p>
+        </div>
+
+        {/* Location */}
+        <div className="space-y-1">
+          {/* <p className="text-lg tracking-[0.2em] font-light text-black uppercase">
+            2025
+          </p> */}
+          <p className="text-sm tracking-[0.1em] font-light text-gray-700 uppercase">
+            Kwara State
+          </p>
+          <p className="text-xs tracking-[0.1em] font-light text-gray-600 italic">
+            Exact location to be sent to confirmed guests
           </p>
         </div>
 
@@ -68,11 +81,11 @@ export default function Home() {
         </div>
 
         {/* RSVP Info */}
-        <div className="pt-6">
+        {/* <div className="pt-6">
           <p className="text-sm text-gray-600 text-center">
             RSVP with your personal invitation code
           </p>
-        </div>
+        </div> */}
 
         {/* Footer */}
         <div className="pt-4">
