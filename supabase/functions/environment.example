@@ -1,0 +1,9 @@
+# Supabase Configuration (automatically provided by Supabase)
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+
+# Postmark API Configuration
+POSTMARK_API_KEY=your_postmark_api_key
+
+# Notification Email Addresses (comma-separated)
+NOTIFICATION_EMAILS=admin@example.com,notifications@example.com 

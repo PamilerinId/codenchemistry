@@ -244,6 +244,41 @@ export default function ProtectedRSVPPage() {
               Pamilerin Idowu
             </h3>
           </div>
+          
+          {/* Dress Code */}
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <p className="text-xs tracking-[0.2em] font-light text-gray-600 uppercase">
+              Dress Color
+            </p>
+            
+            {/* Actual magenta fabric swatch */}
+            <div className="relative">
+              <div className="w-6 h-6 rounded-lg shadow-md border border-white/50 relative overflow-hidden">
+                <img 
+                  src="/WhatsApp Image 2025-09-02 at 9.22.29 PM.jpeg"
+                  alt="Magenta fabric swatch"
+                  className="w-full h-full object-cover"
+                />
+                {/* Subtle overlay for premium feel */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/5"></div>
+              </div>
+              {/* Soft fabric shadow */}
+              <div 
+                className="absolute inset-0 w-6 h-6 rounded-lg blur-sm opacity-15 -z-10"
+                style={{backgroundColor: '#CC00CC'}}
+              ></div>
+            </div>
+            
+            <p className="text-sm tracking-[0.2em] font-light uppercase" style={{
+              textShadow: '0 1px 2px rgba(0,0,0,0.1)',
+              background: 'linear-gradient(135deg, #FF00FF, #CC00CC)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
+              Magenta
+            </p>
+          </div>
         </div>
 
         {/* Date and Location */}

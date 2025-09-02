@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 interface BackgroundMediaProps {
   type?: 'video' | 'image' | 'gradient'
   src?: string
@@ -31,10 +33,11 @@ export default function BackgroundMedia({
         >
           <source src={src} type="video/mp4" />
           {/* Fallback to image if video fails */}
-          <img 
+          <Image 
             src={poster} 
             alt="Wedding background" 
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            className="object-cover"
             onError={(e) => {
               // Hide image if it also fails
               const target = e.target as HTMLImageElement;
@@ -52,10 +55,11 @@ export default function BackgroundMedia({
   if (type === 'image') {
     return (
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
-        <img 
-          src={src} 
+        <Image 
+          src={src || '/trad1.jpeg'} 
           alt="Wedding background" 
-          className="absolute inset-0 w-full h-full object-cover md:object-contain z-0"
+          fill
+          className="object-cover md:object-contain z-0"
           onError={(e) => {
             // Hide image if it fails to load
             const target = e.target as HTMLImageElement;
