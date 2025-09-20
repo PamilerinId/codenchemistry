@@ -31,7 +31,6 @@ export interface RSVPResponse {
   buying_aso_ebi?: boolean
   delivery_requested?: boolean
   delivery_address?: string | null
-  plus_one?: boolean
   created_at?: string
   updated_at?: string
 }

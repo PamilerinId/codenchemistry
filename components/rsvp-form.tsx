@@ -9,7 +9,6 @@ interface RSVPFormData {
   email: string
   invitationCode?: string
   buyingAsoEbi?: boolean
-  plusOne?: boolean
   deliveryRequested?: boolean
   deliveryAddress?: string
   attending?: boolean
@@ -30,7 +29,6 @@ export default function RSVPForm({ onSubmit, className = '', invitationCode, onS
     email: '',
     invitationCode: invitationCode || '',
     buyingAsoEbi: false,
-    plusOne: false,
     deliveryRequested: false,
     deliveryAddress: '',
     attending: true
@@ -96,7 +94,9 @@ export default function RSVPForm({ onSubmit, className = '', invitationCode, onS
           email: '',
           invitationCode: invitationCode || '',
           buyingAsoEbi: false,
-          plusOne: false
+          deliveryRequested: false,
+          deliveryAddress: '',
+          attending: true
         })
       }
     } catch (error) {
@@ -235,26 +235,7 @@ export default function RSVPForm({ onSubmit, className = '', invitationCode, onS
           <strong>Contact Information:</strong> Please provide at least one contact method. You can supply both phone and email, but at least one is required.
         </div>
 
-        {/* Plus One */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Will you bring a plus one? <span className="text-gray-500 font-normal">(Optional)</span></label>
-          <div className="flex items-center space-x-3">
-            <button
-              type="button"
-              onClick={() => handleInputChange('plusOne', false)}
-              className={`px-4 py-2 rounded-md text-sm border ${formData.plusOne ? 'bg-white text-gray-700 border-gray-300' : 'bg-champagne-500 text-white border-champagne-500'}`}
-            >
-              No
-            </button>
-            <button
-              type="button"
-              onClick={() => handleInputChange('plusOne', true)}
-              className={`px-4 py-2 rounded-md text-sm border ${formData.plusOne ? 'bg-champagne-500 text-white border-champagne-500' : 'bg-white text-gray-700 border-gray-300'}`}
-            >
-              Yes
-            </button>
-          </div>
-        </div>
+        {/* Plus One removed */}
 
         {/* Aso-ebi Purchase */}
         <div>

@@ -38,7 +38,6 @@ CREATE TABLE rsvp_responses (
   buying_aso_ebi BOOLEAN DEFAULT false,
   delivery_requested BOOLEAN DEFAULT false,
   delivery_address TEXT,
-  plus_one BOOLEAN DEFAULT false,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
 );

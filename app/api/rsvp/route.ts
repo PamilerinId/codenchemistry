@@ -4,7 +4,7 @@ import { supabase, RSVP_TABLE, RSVPResponse } from '@/lib/supabase'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { fullName, nickname, phoneNumber, isWhatsApp, email, invitationCode, attending, buyingAsoEbi, deliveryRequested, deliveryAddress, plusOne } = body
+    const { fullName, nickname, phoneNumber, isWhatsApp, email, invitationCode, attending, buyingAsoEbi, deliveryRequested, deliveryAddress } = body
 
     // Validate required fields
     if (!fullName?.trim()) {
@@ -90,8 +90,7 @@ export async function POST(request: NextRequest) {
       attending: Boolean(attending),
       buying_aso_ebi: Boolean(buyingAsoEbi),
       delivery_requested: Boolean(deliveryRequested),
-      delivery_address: deliveryRequested && deliveryAddress ? String(deliveryAddress).trim() : null,
-      plus_one: Boolean(plusOne)
+      delivery_address: deliveryRequested && deliveryAddress ? String(deliveryAddress).trim() : null
     }
 
     // Insert into Supabase
