@@ -4,7 +4,7 @@ import { supabase, RSVP_TABLE, RSVPResponse } from '@/lib/supabase'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { fullName, nickname, phoneNumber, isWhatsApp, email, invitationCode } = body
+    const { fullName, nickname, phoneNumber, isWhatsApp, email, invitationCode, attending, buyingAsoEbi, deliveryRequested, deliveryAddress, plusOne } = body
 
     // Validate required fields
     if (!fullName?.trim()) {
@@ -44,20 +44,34 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if invitation has reached max guests
-    const { count: existingResponses, error: countError } = await supabase
+    // Count attending responses; fallback to counting all if attending column not present yet
+    let attendingResponses = 0
+    const { count: attendingCount, error: countError } = await supabase
       .from('rsvp_responses')
       .select('*', { count: 'exact', head: true })
       .eq('invitation_code', invitationCode.toUpperCase())
+      .eq('attending', true)
 
     if (countError) {
       console.error('Error counting RSVPs:', countError)
-      return NextResponse.json(
-        { error: 'Failed to validate invitation capacity' },
-        { status: 500 }
-      )
+      const { count: allCount, error: fallbackError } = await supabase
+        .from('rsvp_responses')
+        .select('*', { count: 'exact', head: true })
+        .eq('invitation_code', invitationCode.toUpperCase())
+
+      if (fallbackError) {
+        console.error('Fallback RSVP count error:', fallbackError)
+        return NextResponse.json(
+          { error: 'Failed to validate invitation capacity' },
+          { status: 500 }
+        )
+      }
+      attendingResponses = allCount || 0
+    } else {
+      attendingResponses = attendingCount || 0
     }
 
-    if ((existingResponses || 0) >= invitation.max_guests) {
+    if (attendingResponses >= invitation.max_guests) {
       return NextResponse.json(
         { error: 'This invitation has reached its maximum number of guests' },
         { status: 400 }
@@ -73,17 +87,48 @@ export async function POST(request: NextRequest) {
       phone_number: phoneNumber?.trim() || null,
       // is_whatsapp: isWhatsApp || false,
       email: email?.trim() || null,
+      attending: Boolean(attending),
+      buying_aso_ebi: Boolean(buyingAsoEbi),
+      delivery_requested: Boolean(deliveryRequested),
+      delivery_address: deliveryRequested && deliveryAddress ? String(deliveryAddress).trim() : null,
+      plus_one: Boolean(plusOne)
     }
 
     // Insert into Supabase
+    let insertError = null
+    let insertData = null
     const { data, error } = await supabase
       .from(RSVP_TABLE)
       .insert([rsvpData])
       .select()
       .single()
 
-    if (error) {
-      console.error('Supabase error:', error)
+    insertError = error
+    insertData = data
+
+    // Fallback: if insert fails due to missing new columns, retry with minimal fields
+    if (insertError) {
+      console.warn('Insert with extended fields failed, retrying with minimal fields')
+      const minimalData = {
+        invitation_id: invitation.id,
+        invitation_code: invitationCode.toUpperCase(),
+        full_name: fullName.trim(),
+        nickname: nickname?.trim() || null,
+        phone_number: phoneNumber?.trim() || null,
+        email: email?.trim() || null,
+        attending: Boolean(attending)
+      }
+      const fallback = await supabase
+        .from(RSVP_TABLE)
+        .insert([minimalData])
+        .select()
+        .single()
+      insertError = fallback.error
+      insertData = fallback.data
+    }
+
+    if (insertError) {
+      console.error('Supabase error:', insertError)
       return NextResponse.json(
         { error: 'Failed to save response' },
         { status: 500 }
@@ -93,7 +138,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { 
         message: 'Response submitted successfully',
-        data 
+        data: insertData 
       },
       { status: 201 }
     )

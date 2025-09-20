@@ -30,26 +30,40 @@ export async function GET(
       )
     }
 
-    // Get count of existing responses for this invitation
-    const { count: existingResponses, error: countError } = await supabase
+    // Get count of existing responses for this invitation (attending only), with fallback if column doesn't exist
+    let attendingResponses = 0
+    const { count: attendingCount, error: countError } = await supabase
       .from('rsvp_responses')
       .select('*', { count: 'exact', head: true })
       .eq('invitation_code', code.toUpperCase())
+      .eq('attending', true)
 
     if (countError) {
       console.error('Error counting RSVPs:', countError)
-      return NextResponse.json(
-        { error: 'Failed to validate invitation' },
-        { status: 500 }
-      )
+      // Fallback: count all responses (older schema without attending)
+      const { count: allCount, error: fallbackError } = await supabase
+        .from('rsvp_responses')
+        .select('*', { count: 'exact', head: true })
+        .eq('invitation_code', code.toUpperCase())
+
+      if (fallbackError) {
+        console.error('Fallback RSVP count error:', fallbackError)
+        return NextResponse.json(
+          { error: 'Failed to validate invitation' },
+          { status: 500 }
+        )
+      }
+      attendingResponses = allCount || 0
+    } else {
+      attendingResponses = attendingCount || 0
     }
 
     // Check if invitation has reached max guests
-    const remainingSlots = invitation.max_guests - (existingResponses || 0)
+    const remainingSlots = invitation.max_guests - attendingResponses
 
     return NextResponse.json({
       invitation,
-      existingRSVPs: existingResponses || 0,
+      existingRSVPs: attendingResponses,
       remainingSlots,
       canRSVP: remainingSlots > 0
     })

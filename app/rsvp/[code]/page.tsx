@@ -49,7 +49,8 @@ export default function ProtectedRSVPPage() {
   const handleRSVPSubmit = (data: any) => {
     // Store the data for redirection
     const guestName = encodeURIComponent(data.fullName)
-    router.push(`/thank-you?name=${guestName}`)
+    const buy = data?.buyingAsoEbi ? '1' : '0'
+    router.push(`/thank-you?name=${guestName}&buy=${buy}`)
   }
 
   const handleSuccess = () => {
