@@ -346,8 +346,8 @@ export default function RSVPForm({ onSubmit, className = '', invitationCode, onS
               <div className="text-xs text-gray-600 space-y-1">
                 <p><strong>Distance:</strong> ~20 minutes from venue</p>
                 <p><strong>Contact:</strong> +234 9161693006</p>
-                {/* <p><strong>Website:</strong> www.awrabsuites.com</p> */}
-                <p><strong>Estimated Rates:</strong> ₦23,000 - ₦88,000/night</p>
+                <p><strong>Website:</strong> <a href="https://hotels.ng/hotel/77955-awrab-suites-limited-kwara" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">View on Hotels.ng</a></p>
+                <p><strong>Estimated Rates:</strong> ~ ₦23,000 - ₦87,000/night</p>
                 <p><strong>Amenities:</strong> Wi-Fi, Restaurant, Pool</p>
               </div>
             </div>
